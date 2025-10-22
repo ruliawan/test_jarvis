@@ -13,7 +13,14 @@ export const login = async (req, res) => {
     if(!valid) return res.status(401).json({message: 'Password salah!'});
 
     const token = generate(user);
-    res.cookie("token", token, {httpOnlu: "true", sameSite: "strict"});
+    // res.cookie("token", token, {httpOnly: "true", sameSite: "strict"});
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true, 
+        sameSite: "None",
+        maxAge: 24 * 60 * 60 * 1000, // 1 hari
+    });
+
     res.json({message: "Login Berhasil"});
 };
 

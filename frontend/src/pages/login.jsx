@@ -21,7 +21,7 @@ export default function Login() {
       //   { email, password },
       //   { withCredentials: true }
       // );
-      await axios.post("/api/login", { email, password }, { withCredentials: true });
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, { email, password }, { withCredentials: true });
       navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Login gagal");

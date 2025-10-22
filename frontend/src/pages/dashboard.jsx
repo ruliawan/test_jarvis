@@ -15,14 +15,14 @@ export default function Dashboard() {
 
   useEffect(() => {
     axios
-      .get("/api/dashboard", { withCredentials: true })
+      .get(`${import.meta.env.VITE_API_URL}/api/dashboard`, { withCredentials: true })
       .then((res) => setMessage(res.data.message))
       .catch(() => navigate("/"));
   }, []);
 
   const logout = async () => {
     // await axios.post("http://localhost:5000/api/logout", {}, { withCredentials: true });
-    await axios.post("/api/logout", {}, { withCredentials: true });
+    await axios.post(`${import.meta.env.VITE_API_URL}/api/logout`, {}, { withCredentials: true });
     navigate("/");
   };
 

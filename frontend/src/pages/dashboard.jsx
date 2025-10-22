@@ -6,15 +6,23 @@ export default function Dashboard() {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:5000/api/dashboard", { withCredentials: true })
+  //     .then((res) => setMessage(res.data.message))
+  //     .catch(() => navigate("/"));
+  // }, []);
+
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/dashboard", { withCredentials: true })
+      .get("/api/dashboard", { withCredentials: true })
       .then((res) => setMessage(res.data.message))
       .catch(() => navigate("/"));
   }, []);
 
   const logout = async () => {
-    await axios.post("http://localhost:5000/api/logout", {}, { withCredentials: true });
+    // await axios.post("http://localhost:5000/api/logout", {}, { withCredentials: true });
+    await axios.post("/api/logout", {}, { withCredentials: true });
     navigate("/");
   };
 

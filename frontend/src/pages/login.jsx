@@ -16,11 +16,12 @@ export default function Login() {
     setLoading(true);
     setError("");
     try {
-      await axios.post(
-        "http://localhost:5000/api/login",
-        { email, password },
-        { withCredentials: true }
-      );
+      // await axios.post(
+      //   "http://localhost:5000/api/login",
+      //   { email, password },
+      //   { withCredentials: true }
+      // );
+      await axios.post("/api/login", { email, password }, { withCredentials: true });
       navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Login gagal");

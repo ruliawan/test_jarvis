@@ -9,8 +9,9 @@ const app = express();
 
 
 const allowedOrigins = [
-  "http://localhost:5173", 
-  "https://68f87d89f48f3fc70f4ce886--jarvis-fe.netlify.app" 
+  "http://localhost:5173",
+  "https://jarvis-fe.netlify.app",
+  "https://68f87d89f48f3fc70f4ce886--jarvis-fe.netlify.app"
 ];
 
 app.use(
